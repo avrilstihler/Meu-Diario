@@ -2,6 +2,14 @@
    
 # 📔🪻 Meu Diário App
 
+</div>
+
+Clique [aqui](https://avrilstihler.github.io/Gerador-de-Teorias-Absurdas/) para acessar o site.
+
+Este projeto é uma aplicação web para um diário pessoal, desenvolvida com HTML, CSS e JavaScript puro. O objetivo é fornecer uma interface para criar, gerenciar e revisitar entradas de diário, com persistência de dados localmente no navegador do usuário através da API `localStorage`.
+
+
+##
 
 <div align="center">
 
@@ -12,14 +20,6 @@
 [![JSON](https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white&labelColor=000000)](https://www.json.org/json-en.html)
 
 </div>
-</div>
-
-Clique [aqui](https://avrilstihler.github.io/Gerador-de-Teorias-Absurdas/) para acessar o site.
-
-Este projeto é uma aplicação web para um diário pessoal, desenvolvida com HTML, CSS e JavaScript puro. O objetivo é fornecer uma interface para criar, gerenciar e revisitar entradas de diário, com persistência de dados localmente no navegador do usuário através da API `localStorage`.
-
-
-
 
 ## 📝 Funcionalidades Implementadas
 
@@ -75,7 +75,7 @@ A aplicação inclui as seguintes funcionalidades:
 | [![4.jpg](https://i.postimg.cc/qMkx9kdZ/4.jpg)](https://postimg.cc/HjhMM1nQ) | [![5.jpg](https://i.postimg.cc/8kdbK7x6/5.jpg)](https://postimg.cc/t7TP74qq) |
 
 
----
+#
 
 <div align="center">
 
