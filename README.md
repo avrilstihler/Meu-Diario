@@ -4,7 +4,7 @@
 
 </div>
 
-Clique [aqui](https://avrilstihler.github.io/Gerador-de-Teorias-Absurdas/) para acessar o site.
+Clique [aqui](https://avrilstihler.github.io/Meu-Diario/) para acessar o site.
 
 Este projeto é uma aplicação web para um diário pessoal, desenvolvida com HTML, CSS e JavaScript puro. O objetivo é fornecer uma interface para criar, gerenciar e revisitar entradas de diário, com persistência de dados localmente no navegador do usuário através da API `localStorage`.
 
