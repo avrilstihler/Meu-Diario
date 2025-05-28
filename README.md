@@ -1,6 +1,6 @@
 <div align="center">
    
-# 📔🪻 Meu Diário App
+# 📔 Meu Diário App
 
 </div>
 
