@@ -10,7 +10,9 @@
 
 #
 
-Este projeto é uma aplicação web para um diário pessoal, desenvolvida com HTML, CSS e JavaScript puro. O objetivo é criar um espaço simples e acessível onde cada pessoa possa registrar seus pensamentos, sentimentos, coisas que gosta, além de salvar fotos e vídeos do YouTube. 
+Este projeto é uma aplicação web para um diário pessoal — um espaço simples e acessível onde cada pessoa pode registrar seus pensamentos, sentimentos, citações, coisas que gosta e também fotos e vídeos do YouTube. 
+
+O estilo das postagens são inspirados no formato de posts do Twitter, simples, rápidos e diretos. 
 
 A aplicação oferece uma interface para criar, gerenciar e revisitar entradas de diário, com persistência de dados localmente no navegador do usuário, utilizando a API `localStorage`.
 
