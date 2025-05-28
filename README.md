@@ -2,9 +2,9 @@
    
 # Meu Diário App 📑💐
 
-[Acessar o site](https://avrilstihler.github.io/Meu-Diario/)
-
 >*Escrever é, no fundo, um jeito bonito de se cuidar.*
+
+[Acessar o site](https://avrilstihler.github.io/Meu-Diario/)
 
 </div>
 
