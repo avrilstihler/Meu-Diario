@@ -2,7 +2,7 @@
    
 # Meu Diário App 📑💐
 
->*Escrever é, no fundo, um jeito bonito de se cuidar.*
+>*Escrever e compartilhar o que sente e gosta é, no fundo, um jeito bonito de se cuidar.*
 
 [Acessar o site](https://avrilstihler.github.io/Meu-Diario/)
 
