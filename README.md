@@ -2,9 +2,21 @@
    
 # Meu Diário App 📑💐
 
-</div>
+<div align="left">
+   
+>Ter um diário é conversar consigo.
+>
+>É transformar pensamentos soltos em palavras que abraçam.
+>
+>Um espaço onde não há julgamentos — só escuta, acolhimento e verdade.
+>
+>Escrever é, no fundo, um jeito bonito de se cuidar.
 
-Clique [aqui](https://avrilstihler.github.io/Meu-Diario/) para acessar o site.
+<div align="center">
+
+[Acessar o site](https://avrilstihler.github.io/Meu-Diario/)
+
+</div>
 
 Este projeto é uma aplicação web para um diário pessoal, desenvolvida com HTML, CSS e JavaScript puro. O objetivo é fornecer uma interface para criar, gerenciar e revisitar entradas de diário, com persistência de dados localmente no navegador do usuário através da API `localStorage`.
 
