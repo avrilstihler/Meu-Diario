@@ -1,8 +1,25 @@
+<div align="center">
+   
 # 📔🪻 Meu Diário App
+
+
+<div align="center">
+
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white&labelColor=E34F26)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white&labelColor=1572B6)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black&labelColor=F7DF1E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Font Awesome](https://img.shields.io/badge/Font_Awesome-528DD7?style=for-the-badge&logo=fontawesome&logoColor=white&labelColor=528DD7)](https://fontawesome.com/)
+[![JSON](https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white&labelColor=000000)](https://www.json.org/json-en.html)
+
+</div>
+</div>
+
+Clique [aqui](https://avrilstihler.github.io/Gerador-de-Teorias-Absurdas/) para acessar o site.
 
 Este projeto é uma aplicação web para um diário pessoal, desenvolvida com HTML, CSS e JavaScript puro. O objetivo é fornecer uma interface para criar, gerenciar e revisitar entradas de diário, com persistência de dados localmente no navegador do usuário através da API `localStorage`.
 
-Clique [aqui](https://avrilstihler.github.io/Gerador-de-Teorias-Absurdas/) para acessar o site.
+
+
 
 ## 📝 Funcionalidades Implementadas
 
@@ -46,17 +63,6 @@ A aplicação inclui as seguintes funcionalidades:
 9.  **Navegação:**
     *   Menu de navegação inferior fixo para acesso às seções principais: Diário, Novo Post, Flashbacks e Perfil.
 
-## 🛠️ Tecnologias
-
-<div align="center">
-
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white&labelColor=E34F26)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white&labelColor=1572B6)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black&labelColor=F7DF1E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Font Awesome](https://img.shields.io/badge/Font_Awesome-528DD7?style=for-the-badge&logo=fontawesome&logoColor=white&labelColor=528DD7)](https://fontawesome.com/)
-[![JSON](https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white&labelColor=000000)](https://www.json.org/json-en.html)
-
-</div>
 
 ## 📸 Capturas de Tela
 
