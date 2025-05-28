@@ -10,7 +10,9 @@
 
 #
 
-Este projeto é uma aplicação web para um diário pessoal, desenvolvida com HTML, CSS e JavaScript puro. O objetivo é fornecer uma interface para criar, gerenciar e revisitar entradas de diário, com persistência de dados localmente no navegador do usuário através da API `localStorage`.
+Este projeto é uma aplicação web para um diário pessoal, desenvolvida com HTML, CSS e JavaScript puro. O objetivo é criar um espaço simples e acessível onde cada pessoa possa registrar seus pensamentos, sentimentos, coisas que gosta, além de salvar fotos e vídeos do YouTube. 
+
+A aplicação oferece uma interface para criar, gerenciar e revisitar entradas de diário, com persistência de dados localmente no navegador do usuário, utilizando a API `localStorage`.
 
 
 ##
