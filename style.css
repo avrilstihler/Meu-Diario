@@ -1,0 +1,563 @@
+/* --- General Body & App Container --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    min-height: 100vh;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* --- Screen Management --- */
+.screen {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    height: calc(100vh - 60px); /* Full height minus footer */
+    overflow-y: auto; /* Allow content of screen to scroll */
+}
+
+.screen.active {
+    display: flex; /* Show active screen */
+}
+
+/* --- Header --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #fff;
+    position: sticky; /* Keep header at top while scrolling content */
+    top: 0;
+    z-index: 10;
+    min-height: 30px; /* Ensure header has some height */
+}
+
+.header h1 {
+    font-size: 1.2em;
+    margin: 0;
+    font-weight: 600;
+    flex-grow: 1; /* Allow title to take space */
+    text-align: center; /* Center title */
+}
+/* Adjust title position if buttons are present */
+.header > :first-child:not(h1) { margin-right: auto; } /* Left button pushes others */
+.header > :last-child:not(h1) { margin-left: auto; }  /* Right button pushes others */
+
+/* Specific header centering for screens with only a back button on left */
+#screen-favorites .header .back-to-profile-btn,
+#screen-current-year .header .back-to-profile-btn {
+    position: absolute; /* Take out of flow for simpler title centering */
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#screen-favorites .header h1,
+#screen-current-year .header h1 {
+    width: 100%; /* Ensure title can center fully */
+    text-align: center;
+}
+
+
+/* --- Content Area --- */
+.content {
+    padding: 15px;
+    flex-grow: 1; /* Content takes remaining space */
+    overflow-y: auto; /* Allows content itself to scroll if it overflows the screen minus header/footer */
+}
+
+.no-posts-message {
+    text-align: center;
+    color: #777;
+    padding: 20px;
+    font-style: italic;
+}
+
+/* --- Buttons --- */
+.icon-button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    color: #555;
+    cursor: pointer;
+    padding: 8px; /* Make clickable area larger */
+    line-height: 1; /* Prevents extra space */
+}
+.icon-button:hover {
+    color: #000;
+}
+
+.text-button {
+    background: none;
+    border: none;
+    color: #007bff;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 10px;
+    font-size: 0.95em;
+}
+.text-button:hover {
+    text-decoration: underline;
+}
+
+
+/* --- Diário & General Post Item Styling --- */
+.post-item {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.avatar-small {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+    background-color: #ccc; /* Placeholder background */
+}
+.post-author-info {
+    flex-grow: 1;
+}
+.post-author-info strong {
+    display: block;
+    font-size: 0.95em;
+}
+.post-time {
+    font-size: 0.8em;
+    color: #657786;
+}
+.post-text {
+    font-size: 0.95em;
+    line-height: 1.5;
+    color: #1c1e21;
+    word-wrap: break-word; /* Prevent long words from breaking layout */
+}
+.post-media {
+    margin-top: 10px;
+}
+.post-media img {
+    max-width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block; /* Remove extra space below image */
+}
+.post-media iframe {
+    width: 100%;
+    min-height: 200px;
+    max-height: 300px; /* Limit iframe height */
+    border: none;
+    border-radius: 6px;
+}
+.post-actions {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 10px;
+}
+.favorite-btn {
+    background: none;
+    border: none;
+    font-size: 1.3em;
+    color: #adb5bd; /* Lighter gray for non-favorited */
+    cursor: pointer;
+    padding: 5px;
+}
+.favorite-btn.favorited {
+    color: #e0245e; /* Twitter-like heart color */
+}
+.post-item-options {
+    display: flex;
+    gap: 5px; /* Space between edit and delete */
+}
+.post-item-options .icon-button {
+    font-size: 1em; /* Smaller icons for edit/delete */
+    color: #6c757d;
+}
+
+
+/* --- Nova Postagem / Editar Postagem Screen --- */
+.new-post-editor {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+.avatar-large {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+    background-color: #ccc;
+}
+#new-post-text {
+    width: 100%;
+    min-height: 120px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 1em;
+    resize: vertical;
+}
+.media-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+#new-post-video-url {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+.media-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+.media-options .icon-button { /* Style for buttons with icon and text */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px; /* Pill-shaped */
+    background-color: #f8f9fa;
+    font-size: 0.9em;
+    color: #333;
+}
+.media-options .icon-button i {
+    font-size: 1.1em;
+}
+.media-options .icon-button:hover {
+    background-color: #e9ecef;
+}
+
+.media-preview-container {
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+}
+.media-preview-container h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+#image-preview {
+    max-width: 100%;
+    max-height: 200px; /* Limit preview height */
+    height: auto;
+    border-radius: 4px;
+    object-fit: contain;
+}
+#video-preview-wrapper iframe {
+    width: 100%;
+    height: 180px; /* Fixed height for preview consistency */
+    border: none;
+    border-radius: 4px;
+}
+#remove-media-btn {
+    background-color: #ffebee; /* Light red */
+    border: 1px solid #ef9a9a;
+    color: #c62828; /* Darker red text */
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    margin-top: 10px;
+    display: inline-block;
+}
+#remove-media-btn:hover {
+    background-color: #ffcdd2;
+}
+
+
+/* --- Flashbacks Screen --- */
+.filter-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 auto 15px auto; /* Center filter controls */
+    padding: 8px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    width: fit-content;
+}
+.filter-controls label {
+    font-size: 0.85em;
+    color: #555;
+}
+#flashback-year-filter {
+    padding: 6px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 0.85em;
+    background-color: white;
+}
+
+
+/* --- Perfil Screen --- */
+.profile-content {
+    text-align: center;
+    padding-top: 10px; /* Extra space from header */
+}
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    background-color: #e0e0e0;
+}
+.profile-content h2 { /* Profile Name */
+    font-size: 1.6em;
+    margin: 10px 0 2px 0;
+    font-weight: 600;
+}
+.profile-content #profile-handle-display { /* Profile Handle */
+    color: #657786;
+    font-size: 0.95em;
+    margin-bottom: 5px;
+}
+.joined-date {
+    font-size: 0.8em;
+    color: #777;
+    margin-bottom: 15px;
+}
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    margin: 15px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.profile-stats div {
+    text-align: center;
+    font-size: 0.9em;
+    color: #555;
+}
+.profile-stats strong {
+    display: block;
+    font-size: 1.3em;
+    color: #333;
+    font-weight: 600;
+}
+.profile-content h3 { /* "Sobre", "Destaques" */
+    text-align: left;
+    font-size: 1.1em;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 600;
+}
+#profile-bio-display {
+    text-align: center;
+    font-size: 0.95em;
+    line-height: 1.5;
+    color: #444;
+    margin-bottom: 20px;
+}
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 15px;
+}
+.highlight-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border: 1px solid #eee;
+}
+.highlight-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+.highlight-item img {
+    width: 100%;
+    height: 100px; /* Fixed height for highlight images */
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    background-color: #e0e0e0; /* Placeholder */
+}
+.highlight-item p {
+    font-size: 0.9em;
+    color: #333;
+    font-weight: 500;
+    margin: 0;
+}
+
+
+/* --- Editar Perfil Screen --- */
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 0.9em;
+    color: #444;
+}
+.form-group input[type="text"],
+.form-group textarea {
+    width: calc(100% - 22px); /* Account for padding and border */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    background-color: #fdfdfd;
+}
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    outline: none;
+}
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+
+/* --- Bottom Navigation --- */
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    border-top: 1px solid #d1d1d1; /* Slightly darker border */
+    padding: 5px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 450px; /* Match app-container max-width */
+    margin: 0 auto; /* Center it if viewport is wider */
+    height: 60px;
+    z-index: 100;
+}
+
+.nav-item {
+    background: none;
+    border: none;
+    color: #868e96; /* Medium gray for inactive icons */
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center icon and text vertically */
+    padding: 5px 10px;
+    font-size: 0.7em; /* Text size */
+    flex-grow: 1;
+    height: 100%; /* Make sure items fill the nav height */
+}
+.nav-item i {
+    font-size: 1.6em; /* Icon size */
+    margin-bottom: 3px;
+}
+.nav-item.active {
+    color: #007bff; /* Active color */
+}
+.nav-item.active i {
+    /* Optionally, make active icon slightly bolder or different style */
+}
+.nav-item:hover {
+    color: #495057; /* Darker gray on hover */
+}
+
+
+/* --- Modals (Delete Confirmation) --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6); /* Darker overlay */
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    width: 85%;
+    max-width: 320px;
+    text-align: center;
+}
+.modal-content p {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.05em;
+    color: #333;
+}
+.modal-content button {
+    display: inline-block; /* Allow buttons side-by-side with gap */
+    width: auto;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 0.95em;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+.modal-content button#confirm-delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border-color: #dc3545;
+}
+.modal-content button#confirm-delete-btn:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+.modal-content button#cancel-delete-btn {
+    background-color: #f8f9fa;
+    color: #333;
+    border-color: #ccc;
+}
+.modal-content button#cancel-delete-btn:hover {
+    background-color: #e2e6ea;
+    border-color: #adb5bd;
+}

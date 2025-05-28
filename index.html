@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Diário</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Screen: Diário (Home) -->
+        <div id="screen-diary" class="screen active">
+            <header class="header">
+                <h1>Diário</h1>
+                <button id="add-post-btn-header" class="icon-button" aria-label="Nova Postagem">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </header>
+            <main class="content" id="diary-post-list">
+                <!-- Posts will be dynamically added here -->
+                <p class="no-posts-message" style="display: none;">Nenhuma postagem ainda. Comece a escrever!</p>
+            </main>
+        </div>
+
+        <!-- Screen: Nova Postagem (also used for Editing) -->
+        <div id="screen-new-post" class="screen">
+            <header class="header">
+                <button id="cancel-post-btn" class="icon-button" aria-label="Cancelar"><i class="fas fa-times"></i></button>
+                <h1 id="new-post-header-title">Nova Postagem</h1>
+                <button id="publish-post-btn" class="text-button">Publicar</button>
+            </header>
+            <main class="content">
+                <div class="new-post-editor">
+                    <img src="https://via.placeholder.com/50?text=Me" alt="User Avatar" class="avatar-large" id="new-post-avatar">
+                    <textarea id="new-post-text" placeholder="O que você está pensando?"></textarea>
+                </div>
+                <div class="media-inputs">
+                    <input type="file" id="new-post-image-input" accept="image/*" style="display: none;">
+                    <input type="text" id="new-post-video-url" placeholder="URL do Vídeo (ex: YouTube)">
+                </div>
+                <div class="media-options">
+                    <button id="add-image-btn" class="icon-button" aria-label="Adicionar Imagem"><i class="fas fa-image"></i> Adicionar Imagem</button>
+                    <button id="add-video-btn" class="icon-button" aria-label="Adicionar Vídeo"><i class="fas fa-video"></i> Usar URL de Vídeo</button>
+                </div>
+                <div id="media-preview-container" class="media-preview-container" style="display:none;">
+                    <h4>Prévia da Mídia:</h4>
+                    <img id="image-preview" src="#" alt="Prévia da Imagem" style="display:none; max-width: 100%; height: auto; margin-top:10px;">
+                    <div id="video-preview-wrapper" style="display:none; margin-top:10px;">
+                        <!-- iframe for video will be inserted here -->
+                    </div>
+                    <button id="remove-media-btn" style="display:none; margin-top: 5px;">Remover Mídia</button>
+                </div>
+                 <input type="hidden" id="editing-post-id">
+            </main>
+        </div>
+
+        <!-- Screen: Flashbacks -->
+        <div id="screen-flashbacks" class="screen">
+            <header class="header">
+                <h1>Flashbacks</h1>
+                <div class="filter-controls">
+                    <label for="flashback-year-filter">Filtrar por Ano:</label>
+                    <select id="flashback-year-filter">
+                        <option value="all">Todos os Anos Passados (>1 ano)</option>
+                        <!-- Years will be populated by JS -->
+                    </select>
+                </div>
+            </header>
+            <main class="content" id="flashback-post-list">
+                <p class="no-posts-message" style="display: none;">Nenhum flashback encontrado.</p>
+            </main>
+        </div>
+
+        <!-- Screen: Perfil -->
+        <div id="screen-profile" class="screen">
+            <header class="header">
+                <h1>Perfil</h1>
+                <button id="edit-profile-btn" class="icon-button" aria-label="Editar Perfil"><i class="fas fa-pencil-alt"></i></button>
+            </header>
+            <main class="content profile-content">
+                <img src="https://via.placeholder.com/100?text=OC" alt="User Avatar" class="profile-pic" id="profile-pic-display">
+                <h2 id="profile-name-display">Usuário</h2>
+                <p id="profile-handle-display">@usuario</p>
+                <p class="joined-date" id="profile-joined-date-display">Juntou-se em...</p> <!-- Will be set dynamically if first post exists -->
+                <div class="profile-stats">
+                    <div><strong id="profile-stat-posts">0</strong> Postagens</div>
+                    <div><strong id="profile-stat-diary-days">0</strong> Dias de Diário</div>
+                </div>
+                <h3>Sobre</h3>
+                <p id="profile-bio-display">Edite seu perfil para adicionar uma bio.</p>
+                <h3>Destaques</h3>
+                <div class="highlights-grid">
+                    <div class="highlight-item" id="my-diary-journey-link">
+                        <img src="https://i.postimg.cc/FFkh2nSM/1.jpg" alt="My Diary Journey">
+                        <p>My Diary Journey</p>
+                    </div>
+                    <div class="highlight-item" id="favorite-memories-link">
+                        <img src="https://i.postimg.cc/SR4dmvZy/seus-slides-aqui.jpg" alt="Favorite Memories">
+                        <p>Memórias Favoritas</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Screen: Editar Perfil -->
+        <div id="screen-edit-profile" class="screen">
+            <header class="header">
+                <button id="cancel-edit-profile-btn" class="icon-button" aria-label="Cancelar"><i class="fas fa-times"></i></button>
+                <h1>Editar Perfil</h1>
+                <button id="save-profile-btn" class="text-button">Salvar</button>
+            </header>
+            <main class="content">
+                 <div class="form-group">
+                    <label for="edit-profile-pic-url">URL da Foto de Perfil (ou deixe em branco para placeholder):</label>
+                    <input type="text" id="edit-profile-pic-url">
+                </div>
+                <div class="form-group">
+                    <label for="edit-profile-name">Nome:</label>
+                    <input type="text" id="edit-profile-name">
+                </div>
+                <div class="form-group">
+                    <label for="edit-profile-handle">Nome de Usuário:</label>
+                    <input type="text" id="edit-profile-handle">
+                </div>
+                <div class="form-group">
+                    <label for="edit-profile-bio">Sobre:</label>
+                    <textarea id="edit-profile-bio"></textarea>
+                </div>
+            </main>
+        </div>
+
+        <!-- Screen: Favorite Posts -->
+        <div id="screen-favorites" class="screen">
+            <header class="header">
+                 <button class="icon-button back-to-profile-btn" aria-label="Voltar ao Perfil"><i class="fas fa-arrow-left"></i></button>
+                <h1>Memórias Favoritas</h1>
+            </header>
+            <main class="content" id="favorite-post-list">
+                <p class="no-posts-message" style="display: none;">Nenhuma postagem favoritada ainda.</p>
+            </main>
+        </div>
+
+        <!-- Screen: Current Year Posts (My Diary Journey) -->
+        <div id="screen-current-year" class="screen">
+            <header class="header">
+                 <button class="icon-button back-to-profile-btn" aria-label="Voltar ao Perfil"><i class="fas fa-arrow-left"></i></button>
+                <h1>Minha Jornada no Diário (Este Ano)</h1>
+            </header>
+            <main class="content" id="current-year-post-list">
+                <p class="no-posts-message" style="display: none;">Nenhuma postagem este ano.</p>
+            </main>
+        </div>
+
+
+        <!-- Bottom Navigation -->
+        <footer class="bottom-nav">
+            <button class="nav-item active" data-screen="screen-diary" aria-label="Diário">
+                <i class="fas fa-book-open"></i>
+                <span>Diário</span>
+            </button>
+            <button class="nav-item" data-screen="screen-new-post" aria-label="Nova Postagem">
+                <i class="fas fa-plus-circle"></i>
+                <span>Novo</span>
+            </button>
+            <button class="nav-item" data-screen="screen-flashbacks" aria-label="Flashbacks">
+                <i class="fas fa-history"></i>
+                <span>Flashbacks</span>
+            </button>
+            <button class="nav-item" data-screen="screen-profile" aria-label="Perfil">
+                <i class="fas fa-user-circle"></i>
+                <span>Perfil</span>
+            </button>
+        </footer>
+
+        <!-- Modals (Confirmation for Delete) -->
+        <div id="delete-confirm-modal" class="modal">
+            <div class="modal-content">
+                <p>Tem certeza que deseja excluir esta postagem?</p>
+                <button id="confirm-delete-btn">Excluir</button>
+                <button id="cancel-delete-btn">Cancelar</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
