@@ -66,11 +66,11 @@ A aplicação inclui as seguintes funcionalidades:
 
 ## 📸 Capturas de Tela
 
-| 🏠 Tela Principal | ➕ Criação/Edição de Postagem |
+| Tela Principal | Criação/Edição de Postagem |
 |---|---|
 | [![2.jpg](https://i.postimg.cc/j5Phr25B/2.jpg)](https://postimg.cc/YG2F6pQx) | [![3.jpg](https://i.postimg.cc/vTyt8yxT/3.jpg)](https://postimg.cc/TLkDQZ9v) |
 
-| 🔍 Tela de Flashbacks com Filtro | ⭐ Tela de Perfil do Usuário |
+| Tela de Flashbacks com Filtro | Tela de Perfil do Usuário |
 |---|---|
 | [![4.jpg](https://i.postimg.cc/qMkx9kdZ/4.jpg)](https://postimg.cc/HjhMM1nQ) | [![5.jpg](https://i.postimg.cc/8kdbK7x6/5.jpg)](https://postimg.cc/t7TP74qq) |
 
