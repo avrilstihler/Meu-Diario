@@ -1,6 +1,6 @@
 <div align="center">
    
-# 📔 Meu Diário App
+# Meu Diário App 📑💐
 
 </div>
 
@@ -74,13 +74,22 @@ A aplicação inclui as seguintes funcionalidades:
 |---|---|
 | [![4.jpg](https://i.postimg.cc/qMkx9kdZ/4.jpg)](https://postimg.cc/HjhMM1nQ) | [![5.jpg](https://i.postimg.cc/8kdbK7x6/5.jpg)](https://postimg.cc/t7TP74qq) |
 
+## 📄 Licença
+Este projeto está licenciado sob a licença MIT.
+
+Para mais detalhes, consulte o arquivo [LICENSE](./LICENSE).
 
 #
 
 <div align="center">
 
-&copy; 2025 Meu Diário — Todos os direitos reservados.  
-Desenvolvido por Avril Stihler.
+<p align="center">
+  <img src="https://i.postimg.cc/yYsvJj9D/1.jpg" alt="Criadora" width="100" style="border-radius: 50%;">
+</p>
 
+<p align="center">
+  Desenvolvido por <strong>Avril Stihler</strong>
+</p>
+&copy; 2025 Meu Diário — Todos os direitos reservados.  
 </div>
 
